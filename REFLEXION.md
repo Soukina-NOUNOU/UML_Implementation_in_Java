@@ -29,3 +29,16 @@
 
 ### Dans `Grault` :
 - `getFoo()` → retourne le `Foo` associé
+
+
+## Difficultés rencontrées
+
+- Compréhension des relations UML
+- Premiére fois avec le language Java
+
+## Améliorations possibles
+
+- Documentation
+- Tests supplémentaires
+- Refacto
+
