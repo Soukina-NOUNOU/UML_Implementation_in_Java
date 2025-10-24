@@ -11,6 +11,9 @@ public class Foo {
 
     // Constructeur
     public Foo(Bar bar) {
+        if (bar == null) {
+            throw new IllegalArgumentException("Bar cannot be null");
+        }
         this.bar = bar;
         this.qux = new Qux(); // Initialise Qux by default
     }
@@ -25,11 +28,11 @@ public class Foo {
     }
 
     public List<Baz> getBazs() {
-        return bazs;
+        return new ArrayList<>(bazs); // Defensive copy
     }
 
     public void setBazs(List<Baz> bazs) {
-        this.bazs = bazs;
+        this.bazs = bazs != null ? new ArrayList<>(bazs) : new ArrayList<>();
     }
 
     public Qux getQux() {
@@ -62,15 +65,17 @@ public class Foo {
     }
 
     public List<Grault> getGraults() {
-        return graults;
+        return new ArrayList<>(graults); // Defensive copy
     }
 
     public void setGraults(List<Grault> graults) {
-        this.graults = graults;
+        this.graults = graults != null ? new ArrayList<>(graults) : new ArrayList<>();
     }
 
     public void addBaz(Baz baz) {
-        this.bazs.add(baz);
+        if (baz != null) {
+            this.bazs.add(baz);
+        }
     }
 
     public void addGrault() {
